@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a2icontacts.a2icontacts.ContactsFragment">
+
+    <TextView
+        android:id="@+id/textview_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/list_item_horizontal_margin"
+        android:gravity="center"
+        android:text="@string/label_contacts"/>
+
+</FrameLayout>
