@@ -3,19 +3,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/list_item_vertical_margin">
-
-    <QuickContactBadge
-        android:id="@+id/contact_badge"
-        android:layout_width="@dimen/contact_badge_width"
-        android:layout_height="@dimen/contact_badge_width"
-        android:layout_marginRight="@dimen/list_item_vertical_margin" />
+    android:paddingTop="@dimen/list_item_vertical_margin"
+    android:paddingBottom="@dimen/list_item_vertical_margin"
+    android:paddingLeft="@dimen/list_item_horizontal_margin"
+    android:paddingRight="0dp"
+    android:background="@drawable/list_item_selector">
 
     <TextView
         android:id="@+id/textview_contact_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/contact_badge"
         android:text="Here goes the contact name"
         android:textSize="16sp" />
 
@@ -48,5 +45,15 @@
         android:contentDescription="Message Contact"
         android:layout_alignTop="@+id/imageButton_call_contact"
         android:layout_toLeftOf="@+id/imageButton_call_contact"
+        android:layout_marginRight="@dimen/list_item_horizontal_margin" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton_email_contact"
+        android:background="@android:drawable/sym_action_email"
+        android:contentDescription="Email Contact"
+        android:layout_alignTop="@+id/imageButton_call_contact"
+        android:layout_toLeftOf="@+id/imageButton_msg_contact"
         android:layout_marginRight="@dimen/list_item_horizontal_margin" />
 </RelativeLayout>

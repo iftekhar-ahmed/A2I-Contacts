@@ -15,7 +15,7 @@ import com.example.a2icontacts.model.Contact;
 
 import java.util.List;
 
-public class ContactsFragment extends ListFragment implements AdapterView.OnItemSelectedListener {
+public class ContactsListFragment extends ListFragment implements AdapterView.OnItemSelectedListener {
 
     private ContactsAdapter contactsAdapter;
     private List<Contact> contacts;

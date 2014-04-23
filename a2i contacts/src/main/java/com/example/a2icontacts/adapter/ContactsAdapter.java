@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
 import com.example.a2icontacts.a2icontacts.R;
@@ -38,7 +37,6 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
     private class ViewHolder {
         TextView textViewName;
         TextView textViewPhoneNo;
-        QuickContactBadge qcb;
     }
 
     @Override
@@ -54,7 +52,6 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
             holder = new ViewHolder();
             holder.textViewName = (TextView) convertView.findViewById(R.id.textview_contact_name);
             holder.textViewPhoneNo = (TextView) convertView.findViewById(R.id.textView_contact_no);
-            holder.qcb = (QuickContactBadge) convertView.findViewById(R.id.contact_badge);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -62,7 +59,6 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
 
         holder.textViewName.setText(contact.getName());
         holder.textViewPhoneNo.setText(contact.getPhone_no());
-        holder.qcb.setBackgroundResource(R.drawable.ic_launcher);
 
         return convertView;
     }

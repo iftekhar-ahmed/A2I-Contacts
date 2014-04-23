@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/A2IContacts.iml" filepath="$PROJECT_DIR$/A2IContacts.iml" />
       <module fileurl="file://$PROJECT_DIR$/a2i contacts/a2i contacts.iml" filepath="$PROJECT_DIR$/a2i contacts/a2i contacts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/view pager indicator/view pager indicator.iml" filepath="$PROJECT_DIR$/view pager indicator/view pager indicator.iml" />
     </modules>
   </component>
 </project>
