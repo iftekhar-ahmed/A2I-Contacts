@@ -1,0 +1,76 @@
+01911320311,Anir Chowdhury,anirchowdhury@pmo.gov.bd,Policy Advisor,5
+01921694123 ,Khondoker Md. Nazmul Huda Shamim,nazmul_batch20@yahoo.com,Policy Specialist,5
+01711236230,Md. Mazedul Islam,islam.mazedul@gmail.com ,Programme Associate,5
+01713244359,Hasanuzzaman,zaman.h1984@gmail.com,Policy Associate,5
+01715578194,Ms. Sohana Samrin Chowdhury,sohanasamrin@a2i.pmo.gov.bd,Policy Associate,5
+01729298989,Asad Ur Rahman Nile,asadrahman@a2i.pmo.gov.bd,Corporate Outreach Expert,6
+01913760134,Sami Ahmed,sami.ahmed@a2i.pmo.gov.bd,Technology Expert,6
+01712171191,Md. Nahid Alam,nahidalam@pmo.gov.bd ,Project Assistant,6
+01712181761,Asif Anwar,tradeconsultant@gmail.com,National Consultant -Web Optimization,6
+01819003707,Md. Shakhawatul Islam,shakhawat.islam@a2i.pmo.gov.bd,Jr. Consultant ,6
+01717828338,Mahmodul Islam,mahmodul.islam@undp.org,Project Assistant,6
+01682395592,Shafayet Chowdhury,shafayet.scs@gmail.com,Innovation Fund Assistant,6
+01714341944,Mizanur Rahman,mizanmasud@gmail.com,Sr. Consultant (Operational Efficiency),7
+01552402260,Sankar Kumar Sil,sankar@pmo.gov.bd,Jr. Consultant e Filling Management,7
+01794615200,Peter Dick Mistree,petermistree@a2i.pmo.gov.bd,MIS Assistant,7
+01811017110,Mohammad Oli Ahad,oliahad.bapi@gmail.com,Monitoring & Evaluation Assistant),7
+01671386863,Omar Faruque,omarfaruque@a2i.pmo.gov.bd,Admin Assistant,7
+01741039412,Rezwanul Islam ,rezwan@gmail.com ,Finance Expert,7
+01712236211,Mohammed Naser Miah,naser@pmo.gov.bd,Finance Associate,7
+01716422362 ,Md. Habibullah,mdhabibullah97@yahoo.com,Finance Assistant,7
+01726297993,Mahfuza Haque,mahfuzahaque@a2i.pmo.gov.bd,Office Secretary,7
+01819804689,Md. Ullah Rabbi,ullah.rabbi@undp.org,HR & Admin Associate,7
+01711074083,Shohel Aman Chowdhhury,shohelaman@gmail.com,Procurement Associate,7
+01716560173,Md. Salahuddin,,Driver,7
+01726737578,Md. Abdul Motin,,Driver,7
+01712729041,Md. Harun Or Rashid,,Driver,7
+01920967571,Md. Amir Hossain,,Driver,7
+01716858683,Quayum,,Driver,7
+01935953919,Md. Roman Mia,romanpmo@gmail.com,Messenger,7
+01192049119,Salek,,Messenger,7
+01911554440,Md. Ali Mortuza,,Messenger,7
+01720038610,SMS Sanaul Hoque,sanaulhq@yahoo.com ,Partnership Specialist (Training),8
+01731928297,Manik Mahmud,manik.undp@gmail.com ,Capacity Development Expert,8
+01914554768 ,Md. Tohurul Hasan,mdhasan79@gmail.com ,Local Development Associate,8
+01717760550,Sadia Shabnam,sadia.shabnam1983@gmail.com,Project Assistant,8
+01814808286,Md. Sohedul Islam,shahidnajim@a2i.pmo.gov,Event Management Assistant,8
+01712704900,Farzana Sultana,farzana.shanto@gmail.com ,M & E Officer,8
+01715153793,Md. Afzal Hossain Sarwar,mahsarwar@gmail.com ,Policy Expert (Education),8
+01716915520,Professor Faruque Ahmed,faruque1954@gmail.com,e-Learning Pedagogy Specialist,8
+01911862491,Md. Rafiqul Islam,sujonanu@gmail.com ,Research Assistant,8
+01741391636,Arnob Chakrabarty,arnobchakrabarty@hotmail.com,HDTV Advisor,8
+01977642413,Mohammed Rifaat Newaz,rifaatnewaz.hdtv@gmail.com,HDTV Coordinator,8
+01711200327,Naimuzzman Mukta,naimuzzaman@pmo.gov.bd ,People's Perspectives Specialist ,9
+01711965071,Tanjina Ashik,tanjina_sharmeen@yahoo.com,Communication Officer,9
+01711935995,Hasan Md. Benaul Islam,benaul@a2i.pmo.gov.bd,Communication Associate,9
+01971147660,Md. Zobayar Alam,zobayar.alam@a2i.pmo.gov.bd,Project Assistant,9
+01712092922,H.M. Asad-Uz-Zaman,azaman.asad@gmail.com ,Local Development Associate,9
+01716327460,Ms. Mable Silvea Rodrigues,psg_jsr@yahoo.com,Programme Associate,9
+01711820624,Suparna Roy,suparna.undp@gmail.com ,Content Development Associate,9
+01714-033496,Ershadul Hamid Pavel,ershadulhamid.pavel@gmail.com. ,Consultant _ Brand Coordinator,9
+01777525486,Pushpita Saha,pushpita.tri.28@gmail.com,Research Assistant,9
+01913167718,Sheikh Kawser Uddin,kawserdhaka@gmail.com,Content Development Assistant,9
+01711968452,Dr. Md. Abdul Mannan,mannan993@yahoo.com,Director (Enabling Environment),11
+01711618368,Md. Forhad Zahid Shaikh,forhadzahid@pmo.gov.bd ,IT Manger,11
+01711314476,Mohammad Lutfur Rahman,lutfur_74777@yahoo.com ,Domain Expert (Field Admin),11
+01712090150,Md. Firoz Kabir,firozdpe2000@gmail.com,National Consultant,11
+01841199077,Md. Monirul Islam,monir@a2i.pmo.gov.bd ,Software Engineer,11
+01717508447,Md. Hafijur Rahman,hafijurcse@gmail.com ,Software Engineer,11
+01711276230,Atiqul Islam Khan Shawon,shawon025@yahoo.com ,Software Engineer,11
+01719337999,Md. Sahedul Hasan,mdsahedul@gmail.com,Software Engineer,11
+01726994445,Farabee Tarannum,farabee.anika@gmail.com,SPS Assistant (Upazila),11
+01914706996,Naziba Hoque,naziba.curie@yahoo.com,SPS Assistant (District),11
+01726921245,Tanzia Ommey Salma,tanzia1086@gmail.com,e-Service Implementation Specialist,10
+01712580496,Rubina Ghani,rubinaghani88@gmail.com,e-Service Implementation Specialist,10
+01676453531,Md. Imrul Hosain,imrul.hosain@gmail.com,e-Service Implementation Specialist,10
+01670237050,Rehana Sultana,rehana.sultana90@gmail.com,e-Service Implementation Specialist,10
+01715018353,Mohammad Abdul Mannan,mannan65a@gmail.com ,e-Office Implementation Specialist,12
+01712171191,Md. Nahid Alam,nahidalam@pmo.gov.bd ,Project Assistant,12
+01750036704,Md. Yasin Shapan,yasinshapan@a2i.pmo.gov.bd,NPF Assistant,12
+01714083500,Md. Doulutuzzaman Khan,doulutuzzamankhan@gmail.com,Domain Expert (Field Admin),13
+01716571158,Altaf Hossain Sheikh,altaf6715@gmail.com,Consutant-National Portal Implementation,13
+01718482426,Md Arfe Elahi Manik,manikbrac@yahoo.com,Technology Specialist,13
+01758575668,Shishir Ranjan Roy,shishir58.bd@gmail.com,Software Consultant ,13
+01717719103,Muhammad Tarik Akhter,tarikakhter@gmail.com,Software Consultant ,13
+01915533104,Borhan Uddin,borhansha@gmail.com,Software Consultant ,13
+01757068388,Moinuddin Muhammad Masud,mmmasud2002@yahoo.com,Software Consultant ,13

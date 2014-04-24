@@ -10,8 +10,18 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.a2icontacts.helper.CSVReader;
+import com.example.a2icontacts.helper.DbManager;
+import com.example.a2icontacts.helper.Utility;
+import com.example.a2icontacts.model.A2IContact;
+import com.example.a2icontacts.model.SubTeam;
+import com.example.a2icontacts.model.Team;
+
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -29,10 +39,35 @@ public class MainActivity extends ActionBarActivity {
         actionBar.addTab(actionBar.newTab().setText(getString(R.string.pager_category_cabinet)).setTabListener(listener));
     }
 
+    private void populateDb() {
+        if (!Utility.isDbCreated(this)) {
+            CSVReader csvReader = new CSVReader(this);
+            csvReader.insertEntities();
+            Utility.storeDbOperation(this);
+        }
+
+        List<Team> teams = DbManager.getInstance().getAllTeams();
+        for (Team t : teams) {
+            Log.e("Team: ", t.get_name());
+        }
+        java.util.List<SubTeam> subTeams = DbManager.getInstance().getAllSubTeams();
+        for (SubTeam t : subTeams) {
+            Log.e("SubTeam: ", t.get_name());
+        }
+
+        List<A2IContact> a2IContacts = DbManager.getInstance().getAllA2IContacts();
+        for (A2IContact t : a2IContacts) {
+            Log.e("Contact : ", t.getName());
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DbManager.init(this);
+        populateDb();
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

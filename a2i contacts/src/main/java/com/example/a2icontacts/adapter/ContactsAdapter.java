@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.a2icontacts.a2icontacts.ContactsEvent;
 import com.example.a2icontacts.a2icontacts.R;
 import com.example.a2icontacts.model.Contact;
 
@@ -19,11 +20,13 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
 
     private Context context;
     private int layoutResourceID;
+    private ContactsEvent contactsEvent;
 
-    public ContactsAdapter(Context context, int resource, List<Contact> objects) {
+    public ContactsAdapter(Context context, int resource, List<Contact> objects, ContactsEvent event) {
         super(context, resource, objects);
         this.context = context;
         layoutResourceID = resource;
+        contactsEvent = event;
     }
 
     @Override

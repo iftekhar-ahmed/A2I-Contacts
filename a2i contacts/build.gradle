@@ -26,4 +26,6 @@ dependencies {
     // The Support Repository (separate from the corresponding library) can be found in the Extras category.
     compile 'com.android.support:support-v4:19.+'
     compile project(':view pager indicator')
+    compile files('libs/ormlite-android-4.48.jar')
+    compile files('libs/ormlite-core-4.48.jar')
 }

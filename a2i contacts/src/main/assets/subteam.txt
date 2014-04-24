@@ -1,0 +1,13 @@
+1,USAID,2
+2,UNDP,2
+3,PMO,3
+4,Cabinet,4
+5,Policy,1
+6,Innovation,1
+7,Operation,1
+8,Capacity Development,1
+9,Communication & Partnership,1
+10,E-Service Implementation,1
+11,Ness Development,1
+12,E-Office,1
+13,NPF,1

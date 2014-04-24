@@ -15,7 +15,7 @@ import com.example.a2icontacts.model.Contact;
 
 import java.util.List;
 
-public class ContactsListFragment extends ListFragment implements AdapterView.OnItemSelectedListener {
+public class ContactsListFragment extends ListFragment implements AdapterView.OnItemSelectedListener, ContactsEvent {
 
     private ContactsAdapter contactsAdapter;
     private List<Contact> contacts;
@@ -24,7 +24,7 @@ public class ContactsListFragment extends ListFragment implements AdapterView.On
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         contacts = ContactsAccessor.getAllContacts();
-        contactsAdapter = new ContactsAdapter(getActivity(), R.layout.list_item_contacts, contacts);
+        contactsAdapter = new ContactsAdapter(getActivity(), R.layout.list_item_contacts, contacts, this);
     }
 
     @Override
@@ -43,6 +43,21 @@ public class ContactsListFragment extends ListFragment implements AdapterView.On
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onCall(String phoneNo) {
+
+    }
+
+    @Override
+    public void onMessage(String phoneNo) {
+
+    }
+
+    @Override
+    public void onEmail(String email) {
 
     }
 }
