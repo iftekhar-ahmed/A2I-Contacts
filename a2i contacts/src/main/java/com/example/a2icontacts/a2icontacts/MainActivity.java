@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -16,9 +17,6 @@ import android.view.MenuItem;
 
 import com.example.a2icontacts.helper.CSVReader;
 import com.example.a2icontacts.helper.DbManager;
-import com.example.a2icontacts.helper.Utility;
-import com.example.a2icontacts.model.A2IContact;
-import com.example.a2icontacts.model.SubTeam;
 import com.example.a2icontacts.model.Team;
 
 import java.util.List;
@@ -40,25 +38,27 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void populateDb() {
-        if (!Utility.isDbCreated(this)) {
+        /*if (!Utility.isDbCreated(this)) {
             CSVReader csvReader = new CSVReader(this);
             csvReader.insertEntities();
             Utility.storeDbOperation(this);
-        }
+        }*/
+        CSVReader csvReader = new CSVReader(this);
+        csvReader.insertEntities();
 
         List<Team> teams = DbManager.getInstance().getAllTeams();
         for (Team t : teams) {
             Log.e("Team: ", t.get_name());
         }
-        java.util.List<SubTeam> subTeams = DbManager.getInstance().getAllSubTeams();
-        for (SubTeam t : subTeams) {
-            Log.e("SubTeam: ", t.get_name());
-        }
+       /*java.util.List<SubTeam> subTeams = DbManager.getInstance().getAllSubTeams();
+            for (SubTeam t : subTeams) {
+                Log.e("SubTeam: ", t.get_name());
+            }
 
-        List<A2IContact> a2IContacts = DbManager.getInstance().getAllA2IContacts();
-        for (A2IContact t : a2IContacts) {
-            Log.e("Contact : ", t.getName());
-        }
+            List<A2IContact> a2IContacts = DbManager.getInstance().getAllA2IContacts();
+            for (A2IContact t : a2IContacts) {
+                Log.e("Contact : ", t.getName());
+        }*/
     }
 
     @Override
@@ -66,8 +66,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DbManager.init(this);
-        populateDb();
+        //DbManager.init(this);
+       // populateDb();
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -126,20 +126,47 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class CategoriesPagerAdapter extends FragmentStatePagerAdapter {
+
+
+    private class CategoriesPagerAdapter extends FragmentStatePagerAdapter implements TeamEvent{
+
+        private FragmentManager fragmentManager;
+        private ListFragment teamListFragment;
 
         public CategoriesPagerAdapter(FragmentManager fm) {
             super(fm);
+            fragmentManager = fm;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return new ContactsListFragment();
+            switch (position) {
+                case 0:
+                    return new ContactsListFragment();
+                case 1:
+                    if(teamListFragment == null) {
+                        teamListFragment = new TeamListFragment(this);
+                    }
+                    return teamListFragment;
+                default:
+                    return new ContactsListFragment();
+            }
         }
 
         @Override
         public int getCount() {
             return NUM_PAGES;
+        }
+
+        @Override
+        public void onTeamSelect(String teamName) {
+            Log.i(getClass().getSimpleName(), teamName);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.remove(teamListFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+            teamListFragment = new ContactsListFragment();
+            notifyDataSetChanged();
         }
     }
 }

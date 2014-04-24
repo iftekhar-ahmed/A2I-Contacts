@@ -7,26 +7,23 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.a2icontacts.a2icontacts.ContactsEvent;
 import com.example.a2icontacts.a2icontacts.R;
-import com.example.a2icontacts.model.Contact;
+import com.example.a2icontacts.model.raw.A2ITeam;
 
 import java.util.List;
 
 /**
- * Created by Farhan on 17/04/2014.
+ * Created by Farhan on 24/04/2014.
  */
-public class ContactsAdapter extends ArrayAdapter<Contact> {
+public class TeamListAdapter extends ArrayAdapter<A2ITeam> {
 
     private Context context;
     private int layoutResourceID;
-    private ContactsEvent contactsEvent;
 
-    public ContactsAdapter(Context context, int resource, List<Contact> objects, ContactsEvent event) {
+    public TeamListAdapter(Context context, int resource, List<A2ITeam> objects) {
         super(context, resource, objects);
         this.context = context;
         layoutResourceID = resource;
-        contactsEvent = event;
     }
 
     @Override
@@ -38,14 +35,13 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
     }
 
     private class ViewHolder {
-        TextView textViewName;
-        TextView textViewPhoneNo;
+        TextView textViewTeamName;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Contact contact = getItem(position);
+        A2ITeam a2ITeam = getItem(position);
 
         View inflatedView = LayoutInflater.from(context).inflate(layoutResourceID, parent, false);
         ViewHolder holder = null;
@@ -53,15 +49,13 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
         if (convertView == null) {
             convertView = inflatedView;
             holder = new ViewHolder();
-            holder.textViewName = (TextView) convertView.findViewById(R.id.textview_contact_name);
-            holder.textViewPhoneNo = (TextView) convertView.findViewById(R.id.textView_contact_no);
+            holder.textViewTeamName = (TextView) convertView.findViewById(R.id.textView_team_name);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.textViewName.setText(contact.getName());
-        holder.textViewPhoneNo.setText(contact.getPhone_no());
+        holder.textViewTeamName.setText(a2ITeam.get_name());
 
         return convertView;
     }

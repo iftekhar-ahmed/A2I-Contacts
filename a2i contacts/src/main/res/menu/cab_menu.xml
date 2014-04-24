@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.a2icontacts.a2icontacts.MainActivity">
+    <item
+        android:id="@+id/action_group_sms"
+        android:title="Group Message"
+        android:icon="@drawable/ic_action_group_chat"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_group_email"
+        android:title="Group Email"
+        android:icon="@drawable/ic_action_group_email"
+        app:showAsAction="always" />
+</menu>

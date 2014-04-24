@@ -1,6 +1,7 @@
 package com.example.a2icontacts.helper;
 
 import android.content.Context;
+
 import com.example.a2icontacts.model.A2IContact;
 import com.example.a2icontacts.model.Contact;
 import com.example.a2icontacts.model.SubTeam;
