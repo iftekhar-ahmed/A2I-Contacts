@@ -20,7 +20,6 @@
 <resources>
 
     <style name="Theme.A2i" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-        <item name="icon">@drawable/ic_logo_a2i</item>
         <item name="actionBarItemBackground">@drawable/selectable_background_a2i</item>
         <item name="popupMenuStyle">@style/PopupMenu.A2i</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.A2i</item>

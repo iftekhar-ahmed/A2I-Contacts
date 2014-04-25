@@ -19,6 +19,10 @@ public class TeamListFragment extends ListFragment {
     private TeamListAdapter teamListAdapter;
     private List<A2ITeam> teams;
     private TeamEvent event;
+
+    public TeamListFragment() {
+        super();
+    }
     
     public TeamListFragment(TeamEvent teamEvent) {
         event = teamEvent;

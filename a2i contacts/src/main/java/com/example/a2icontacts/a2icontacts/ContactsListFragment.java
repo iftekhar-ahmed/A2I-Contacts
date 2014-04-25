@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,7 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.AbsListView;
+import android.widget.ListView;
 
 import com.example.a2icontacts.adapter.ContactListAdapter;
 import com.example.a2icontacts.dao.ContactsAccessor;
@@ -20,7 +20,7 @@ import com.example.a2icontacts.model.raw.A2IContact;
 
 import java.util.List;
 
-public class ContactsListFragment extends ListFragment implements ContactsEvent, ActionMode.Callback {
+public class ContactsListFragment extends ListFragment implements ContactsEvent {
 
     private ContactListAdapter contactsAdapter;
     private List<A2IContact> contacts;
@@ -42,17 +42,36 @@ public class ContactsListFragment extends ListFragment implements ContactsEvent,
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        Log.i(getTag(), "view created");
-        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        super.onViewCreated(view, savedInstanceState);
+        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        getListView().setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i(getTag(), "item long pressed " + position);
-                getActivity().startActionMode(ContactsListFragment.this);
-                view.setSelected(true);
+            public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+
+            }
+
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.cab_menu, menu);
                 return true;
             }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+
+            }
         });
-        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
@@ -79,27 +98,5 @@ public class ContactsListFragment extends ListFragment implements ContactsEvent,
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT, "");
         startActivity(Intent.createChooser(intent, ""));
-    }
-
-    @Override
-    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.cab_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        return false;
-    }
-
-    @Override
-    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        return false;
-    }
-
-    @Override
-    public void onDestroyActionMode(ActionMode mode) {
-
     }
 }
