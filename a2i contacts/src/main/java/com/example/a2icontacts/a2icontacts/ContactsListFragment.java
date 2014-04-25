@@ -18,18 +18,21 @@ import com.example.a2icontacts.adapter.ContactListAdapter;
 import com.example.a2icontacts.dao.ContactsAccessor;
 import com.example.a2icontacts.model.raw.A2IContact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsListFragment extends ListFragment implements ContactsEvent {
 
     private ContactListAdapter contactsAdapter;
     private List<A2IContact> contacts;
+    private List<A2IContact> contactsGroup;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         contacts = ContactsAccessor.geta2iContacts();
         contactsAdapter = new ContactListAdapter(getActivity(), R.layout.list_item_contacts, contacts, this);
+        contactsGroup = new ArrayList<A2IContact>();
     }
 
     @Override
@@ -47,7 +50,12 @@ public class ContactsListFragment extends ListFragment implements ContactsEvent 
         getListView().setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-
+                A2IContact contact = (A2IContact) getListAdapter().getItem(position);
+                if (checked) {
+                    contactsGroup.add(contact);
+                } else {
+                    contactsGroup.remove(contact);
+                }
             }
 
             @Override
@@ -64,7 +72,23 @@ public class ContactsListFragment extends ListFragment implements ContactsEvent 
 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                return false;
+                switch (item.getItemId()) {
+                    case R.id.action_group_sms:
+                        List<String> phones = new ArrayList<String>();
+                        for (A2IContact contact : contactsGroup) {
+                            phones.add(contact.getMobile());
+                        }
+                        onMessage(phones.toArray(new String[]{}));
+                        break;
+                    case R.id.action_group_email:
+                        List<String> emails = new ArrayList<String>();
+                        for (A2IContact contact : contactsGroup) {
+                            emails.add(contact.getEmail());
+                        }
+                        onEmail(emails.toArray(new String[]{}));
+                        break;
+                }
+                return true;
             }
 
             @Override
@@ -82,19 +106,24 @@ public class ContactsListFragment extends ListFragment implements ContactsEvent 
     }
 
     @Override
-    public void onMessage(String phoneNo) {
+    public void onMessage(String... phoneNo) {
+        StringBuilder sb = new StringBuilder();
+        for (String phone : phoneNo) {
+            sb.append(phone);
+            sb.append(";");
+        }
         Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-        sendIntent.putExtra("address", phoneNo);
+        sendIntent.putExtra("address", sb.toString());
         sendIntent.putExtra("sms_body", "");
         sendIntent.setType("vnd.android-dir/mms-sms");
         getActivity().startActivity(sendIntent);
     }
 
     @Override
-    public void onEmail(String email) {
+    public void onEmail(String... email) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("plain/text");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        intent.putExtra(Intent.EXTRA_EMAIL, email);
         intent.putExtra(Intent.EXTRA_SUBJECT, "");
         intent.putExtra(Intent.EXTRA_TEXT, "");
         startActivity(Intent.createChooser(intent, ""));

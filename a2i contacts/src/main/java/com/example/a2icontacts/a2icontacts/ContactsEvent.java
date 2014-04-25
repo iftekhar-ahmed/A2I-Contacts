@@ -5,6 +5,6 @@ package com.example.a2icontacts.a2icontacts;
  */
 public interface ContactsEvent {
     void onCall(String phoneNo);
-    void onMessage(String phoneNo);
-    void onEmail(String email);
+    void onMessage(String... phoneNo);
+    void onEmail(String... email);
 }
