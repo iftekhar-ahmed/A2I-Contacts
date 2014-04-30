@@ -1,6 +1,7 @@
 package com.example.a2icontacts.a2icontacts;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,15 +19,6 @@ public class TeamListFragment extends ListFragment {
 
     private TeamListAdapter teamListAdapter;
     private List<A2ITeam> teams;
-    private TeamEvent event;
-
-    public TeamListFragment() {
-        super();
-    }
-    
-    public TeamListFragment(TeamEvent teamEvent) {
-        event = teamEvent;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +35,12 @@ public class TeamListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        event.onTeamSelect(((TextView)v.findViewById(R.id.textView_team_name)).getText().toString());
+        String teamName = ((TextView) v.findViewById(R.id.textView_team_name)).getText().toString();
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.root_fragment, new ContactsListFragment());
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

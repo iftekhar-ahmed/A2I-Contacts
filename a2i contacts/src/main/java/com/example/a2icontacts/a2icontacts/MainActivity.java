@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -67,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         //DbManager.init(this);
-       // populateDb();
+        // populateDb();
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -102,6 +101,17 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        if (viewPager.getCurrentItem() == 1) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0)
+                getSupportFragmentManager().popBackStackImmediate();
+            else finish();
+        } else
+            finish();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -126,16 +136,10 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-    private class CategoriesPagerAdapter extends FragmentStatePagerAdapter implements TeamEvent{
-
-        private FragmentManager fragmentManager;
-        private ListFragment teamListFragment;
+    private class CategoriesPagerAdapter extends FragmentStatePagerAdapter {
 
         public CategoriesPagerAdapter(FragmentManager fm) {
             super(fm);
-            fragmentManager = fm;
         }
 
         @Override
@@ -144,10 +148,7 @@ public class MainActivity extends ActionBarActivity {
                 case 0:
                     return new ContactsListFragment();
                 case 1:
-                    if(teamListFragment == null) {
-                        teamListFragment = new TeamListFragment(this);
-                    }
-                    return teamListFragment;
+                    return new TransitionFragment();
                 default:
                     return new ContactsListFragment();
             }
@@ -156,17 +157,6 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public int getCount() {
             return NUM_PAGES;
-        }
-
-        @Override
-        public void onTeamSelect(String teamName) {
-            Log.i(getClass().getSimpleName(), teamName);
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.remove(teamListFragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-            teamListFragment = new ContactsListFragment();
-            notifyDataSetChanged();
         }
     }
 }
